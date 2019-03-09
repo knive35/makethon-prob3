@@ -1,0 +1,5 @@
+package com.example.visitor.dto;
+
+public class visitorDTO {
+
+}

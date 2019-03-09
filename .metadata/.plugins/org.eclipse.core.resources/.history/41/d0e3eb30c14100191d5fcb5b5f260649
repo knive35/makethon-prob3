@@ -1,0 +1,16 @@
+package com.example.visitor.entity;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="vdata")
+public class visitorEntity {
+	@Id 
+	private int vId;
+	private String vName;
+	private String refId;
+	private String purpose;
+	
+}

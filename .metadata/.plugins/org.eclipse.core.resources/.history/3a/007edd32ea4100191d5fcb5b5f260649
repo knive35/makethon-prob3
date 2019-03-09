@@ -1,0 +1,21 @@
+package com.example.visitor.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.visitor.dto.visitorDTO;
+import com.example.visitor.entity.visitorEntity;
+import com.example.visitor.repository.visitorRepository;
+
+@Service
+public class VisitorService {
+	@Autowired
+	visitorRepository vss;
+	public String saveData(visitorDTO visitor) {
+		visitorEntity entity = visitorDTO.toEntity(visitor);
+		vss.saveAndFlush(entity);
+		return "success";
+	}
+}
+
+

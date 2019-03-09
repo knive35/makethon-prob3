@@ -1,0 +1,53 @@
+package com.example.visitor.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.visitor.dto.visitorDTO;
+import com.example.visitor.repository.visitorRepository;
+import com.example.visitor.service.VisitorService;
+
+@RestController
+public class visitorController {
+	@Autowired 
+	VisitorService vss;
+	@Autowired
+	visitorRepository vr;
+	@RequestMapping(value="/api", method=RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE)
+	public String saveData(@RequestBody visitorDTO visitor) {
+		return vss.saveData(visitor);
+	}
+}
+
+/*
+@RestController
+public class HotelSearchController {
+
+	@Autowired
+	HotelSearchService hss;
+	@Autowired
+	HotelSearchRepo hr;
+	
+	@RequestMapping(value="/api/{str}", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	public List<String> cityNames( @PathVariable String str){
+		return hss.cityNames(str);
+	}
+	
+	@RequestMapping(value="/api/hotel/{id}", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	public HotelReview hotelReview( @PathVariable int id){
+		return hss.hotelReview(id);
+	}
+	
+	@RequestMapping(value="/api/city/{city}", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	public List<NamesOfHotels> hotelList( @PathVariable String city){
+		return hss.hotelList(city);
+	}
+
+*/

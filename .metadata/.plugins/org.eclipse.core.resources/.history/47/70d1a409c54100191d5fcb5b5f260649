@@ -1,0 +1,9 @@
+package com.example.visitor.service;
+
+public class VisitorService {
+
+	public String saveData() {
+		return "success";
+	}
+
+}
